@@ -8,6 +8,8 @@ public class CarExec_Chapter15 {
 		//ギアを3に変更
 		abc.gearChange(3);
 
+		abc.run();
+
 	}
 
 }

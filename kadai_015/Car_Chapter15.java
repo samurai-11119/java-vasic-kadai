@@ -15,22 +15,24 @@ class Car {
 	}
 
 	//メソッドを受けて速度を更新する
-	public void gearChange(final int number) {
-		System.out.println("ギア" + gear + "から" + number + "に切り替えました");
-
+	public void gearChange(final int afterGear) {
+		System.out.println("ギア" + gear + "から" + afterGear + "に切り替えました");
+		this.gear = afterGear;
 		//ギアが1～5以外なら時速10km
-		if (number >= 1 && 5 >= number) {
-			run(number);
-		} else {
-			System.out.println("速度は時速10kmです");
-
-		}
+		this.speed = switch (this.gear) {
+		case 1 -> 10;
+		case 2 -> 20;
+		case 3 -> 30;
+		case 4 -> 40;
+		case 5 -> 50;
+		default -> 10;
+		};
 
 	}
 
 	//速度を計算する
-	public void run(final int number) {
-		int changespeed = number * 10;
-		System.out.println("速度は" + "時速" + changespeed + "kmです");
+	public void run() {
+
+		System.out.println("速度は" + "時速" + this.speed + "kmです");
 	}
 }
